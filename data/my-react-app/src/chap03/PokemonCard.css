@@ -1,0 +1,71 @@
+/* 一覧の並べ方（横並び・折り返し） */
+.card-container {
+  display: flex;               /* 横並び */
+  flex-wrap: wrap;             /* 幅が足りなければ折り返す */
+  gap: 16px;                   /* カード間のすき間 */
+  align-items: stretch;        /* 高さをそろえる */
+}
+
+/* 1枚のカードの箱 */
+.card {
+  width: 200px;                /* カード幅 */
+  border: 3px solid #dadada;   /* 外枠（タイプ色で上書き） */
+  border-radius: 16px;         /* 角丸 */
+  background: #fffdf7;         /* ちょいクリーム色でカード感 */
+  box-shadow: 0 4px 14px rgba(0,0,0,.12); /* 影 */
+  overflow: hidden;            /* 角丸からはみ出さない */
+  transition: transform .15s;  /* ホバーの拡大アニメ */
+}
+
+.card:hover { transform: translateY(-2px) scale(1.02); } /* ふわっと浮く */
+
+.card-header {
+  display: flex;               /* 名前とHPを左右に */
+  justify-content: space-between;
+  padding: 8px 10px;           /* 余白 */
+  color: #1a1a1a;              /* 文字色（帯の背景に乗る） */
+  font-weight: 700;            /* 太字 */
+}
+
+.card-name { font-size: 15px; }   /* 名前サイズ */
+.card-hp   { font-size: 14px; }   /* HPサイズ */
+
+.card-image {
+  width: 150px;                /* 画像サイズ */
+  height: 150px;
+  object-fit: contain;         /* 画像の比率を保つ */
+  display: block;              /* 余計な隙間を消す */
+  margin: 8px auto 0;          /* 中央寄せ */
+}
+
+.card-type {
+  text-align: center;          /* 中央寄せ */
+  margin: 6px 0 4px;
+  color: #444;
+}
+
+/* HPバー */
+.hpbar {
+  height: 10px;                /* バー高さ */
+  background: #eee;            /* 下地 */
+  border-radius: 6px;
+  margin: 0 12px 8px;
+  overflow: hidden;            /* 角丸からはみ出さない */
+}
+.hpbar-fill {
+  height: 100%;                /* 親の高さいっぱい */
+  width: 0;                    /* JS側で幅(%)を代入 */
+  background: #81c784;         /* デフォ色（タイプ色で上書き） */
+}
+
+/* 技リスト */
+.moves { padding: 6px 12px 12px; }
+.moves-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.moves-list {
+  margin: 0;
+  padding-left: 18px;          /* 箇条書きのインデント */
+  line-height: 1.5;
+}
